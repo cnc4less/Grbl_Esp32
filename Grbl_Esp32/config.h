@@ -93,6 +93,7 @@ Some features should not be changed. See notes below.
 #define CMD_COOLANT_FLOOD_OVR_TOGGLE 0xA0
 #define CMD_COOLANT_MIST_OVR_TOGGLE 0xA1
 
+
 // If homing is enabled, homing init lock sets Grbl into an alarm state upon power up. This forces
 // the user to perform the homing cycle (or override the locks) before doing anything else. This is
 // mainly a safety feature to remind the user to home, since position is unknown to Grbl.
@@ -181,7 +182,7 @@ Some features should not be changed. See notes below.
 // Enables a second coolant control pin via the mist coolant g-code command M7 on the Arduino Uno
 // analog pin 4. Only use this option if you require a second coolant control pin.
 // NOTE: The M8 flood coolant control pin on analog pin 3 will still be functional regardless.
-//#define ENABLE_M7 // Disabled by default. Uncomment to enable.
+#define ENABLE_M7 // Disabled by default. Uncomment to enable.
 
 // This option causes the feed hold input to act as a safety door switch. A safety door, when triggered,
 // immediately forces a feed hold and then safely de-energizes the machine. Resuming is blocked until
@@ -445,7 +446,7 @@ Some features should not be changed. See notes below.
 // available RAM, like when re-compiling for a Mega2560. Or decrease if the Arduino begins to
 // crash due to the lack of available RAM or if the CPU is having trouble keeping up with planning
 // new incoming motions as they are executed.
-// #define BLOCK_BUFFER_SIZE 16 // Uncomment to override default in planner.h.
+#define BLOCK_BUFFER_SIZE 32 // Uncomment to override default in planner.h.
 
 // Governs the size of the intermediary step segment buffer between the step execution algorithm
 // and the planner blocks. Each segment is set of steps executed at a constant velocity over a

@@ -64,9 +64,16 @@ void serialCheckTask(void *pvParameters)
 	
 	while(true) // run continuously
 	{
-		while (Serial.available()) // loop until all characters are read
+		//while (Serial.available()) // loop until all characters are read
+		while (Serial.available() || (SerialBT.hasClient() && SerialBT.available()))
 		{			
-		  data = Serial.read();			
+		  if (Serial.available())				
+				data = Serial.read();
+			else
+			{
+				data = SerialBT.read();
+			  Serial.write(data);  // echo all data to serial
+			}
 			
 			// Pick off realtime command characters directly from the serial stream. These characters are
 			// not passed into the main buffer, but these set system state flag bits for realtime execution.

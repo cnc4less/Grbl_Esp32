@@ -26,7 +26,8 @@
 	Check features like pull-ups, pwm, etc before
   re-assigning numbers
 	
-	(gpio34-39) are inputs only and don't have software pullup/down functions
+	(gpio34-39) are inputs only and don't have software pullup/down functions.
+	You MUST use external pullups or noise WILL cause problems.
 	
 	Unlike the AVR version certain pins are not forced into the same port. 
 	Therefore, bit masks are not use the same way and typically should not be 
@@ -94,11 +95,8 @@
 		#define STEPPER_OFF_PERIOD_uSEC  3  // each tick is
 		
 		#define STEP_PULSE_MIN 3   // uSeconds
-		#define STEP_PULSE_MAX 10  // uSeconds
-		
-		#define STEP_OFF_AFTER_DELAY 0xFF
-  
-	
+		#define STEP_PULSE_MAX 10  // uSeconds		
+ 
 
 #endif  
 

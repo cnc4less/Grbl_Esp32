@@ -20,7 +20,7 @@
 
 // Grbl versioning system
 #define GRBL_VERSION "1.1f"
-#define GRBL_VERSION_BUILD "20170801"
+#define GRBL_VERSION_BUILD "20180804"
 
 //#include <sdkconfig.h>
 #include <arduino.h>
@@ -52,6 +52,7 @@
 #include "spindle_control.h"
 #include "stepper.h"
 #include "jog.h"
+#include "grbl_bluetooth.h"
 
 
 
